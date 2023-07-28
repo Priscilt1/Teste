@@ -1,6 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Header } from './components/Header'
+import Button from './components/Button'
+import Header from './components/Header'
+import Title from './components/Title'
 import { Container, GlobalStyled } from './styles/global'
 
 export function App() {
@@ -8,6 +10,7 @@ export function App() {
     <Container>
       <GlobalStyled />
       <Header />
+      <Button text='SALVAR' onClick={()=>{}} />
     </Container>
   )
 }
