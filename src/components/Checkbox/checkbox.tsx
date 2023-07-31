@@ -12,6 +12,7 @@ const IconCheck = () => (
     <polyline points="20 6 9 17 4 12" />
   </IconStyled>
 )
+
 export const Checkbox = ({ label, checked, disabled, ...props }: ICheckbox) => {
   return (
     <CheckboxRootContainer>
