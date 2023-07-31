@@ -1,17 +1,6 @@
 import React from 'react'
-import { ButtonStyled } from './styled'
-
-interface IButton {
-  readonly text: string
-  readonly backgroundColor?: string
-  readonly colorText?: string
-  readonly disabled?: false
-  readonly border?: string
-  readonly hoverBackgroundColor?: string
-  readonly hoverBorder?: string
-  readonly hoverTextColor?: string
-  readonly onClick: (event: React.MouseEvent<HTMLElement> | string) => void
-}
+import { ButtonStyled } from './button.styled'
+import { IButton } from './interface'
 
 export const Button = ({ text, backgroundColor, colorText, disabled, border, hoverBackgroundColor, hoverBorder, hoverTextColor }: IButton) => {
   return (

@@ -52,3 +52,9 @@ export const Container = styled.main`
     border-radius: 0px;
   }
 `
+
+export const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding-left: 1rem;
+`

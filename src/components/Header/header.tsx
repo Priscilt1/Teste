@@ -1,5 +1,5 @@
 import React from 'react'
-import { HeaderContainer, Title, SubTitle } from './styled'
+import { HeaderContainer, Title, SubTitle } from './header.styled'
 
 export const Header = () => {
   return (
