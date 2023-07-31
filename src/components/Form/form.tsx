@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react'
+import React, { useReducer, useContext } from 'react'
 import Button from '../Button'
 import Checkbox from '../Checkbox'
 import Counter from '../Counter'
@@ -9,6 +9,7 @@ export const Form = () => {
   const [event, updateEvent] = useReducer((prev, next) => {
     return { ...prev, ...next }
   }, { react: false, vue: false, angular: false })
+
 
   return (
     <>

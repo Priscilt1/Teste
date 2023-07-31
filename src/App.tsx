@@ -5,12 +5,12 @@ import Header from './components/Header'
 import { Container, GlobalStyled } from './styles/global'
 
 export function App() {
-    return (
+  return (
     <Container>
       <GlobalStyled />
       <Header />
       <Form />
-    </Container>
+    </Container>    
   )
 }
 
