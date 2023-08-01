@@ -1,4 +1,4 @@
-import React, { createContext, useReducer } from 'react'
+import React, { createContext, useReducer, useContext } from 'react'
 import { IForm } from './interface'
 
 const initialValues = {
@@ -9,7 +9,7 @@ const initialValues = {
   text: '',
 }
 
-const FormContext = createContext<IForm>(initialValues)
+export const FormContext = createContext<IForm>(initialValues)
 
 export const FormContextProvider = ({ children }: { children: React.ReactNode }) => {
   const [event, updateEvent] = useReducer((prev, next) => {
@@ -28,4 +28,12 @@ export const FormContextProvider = ({ children }: { children: React.ReactNode })
   )
 }
 
-export default FormContext
+export const useForm = () => {
+  const context = useContext(FormContext)
+
+  if (context === undefined) {
+    throw new Error('useForm must be used within a formProvider')
+  }
+
+  return context
+}

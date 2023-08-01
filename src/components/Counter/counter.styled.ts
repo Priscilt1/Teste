@@ -30,7 +30,8 @@ export const ButtonStyled = styled.button`
 export const CounterContainer = styled.label`
   border-radius: 0.25rem;
   border: 1px solid var(--color-dark-grey-blue);
-  background: var(--color-light-sky-blue);
+  border: ${props => (props.isInvalid ? '1px solid var(--color-red-error)': '1px solid var(--color-dark-grey-blue)')};
+  background: ${props => (props.isInvalid ? 'var(--color-background-error)': 'var(--color-light-sky-blue)')};
   width: 3.75rem;
   height: 2.625rem;
   flex-shrink: 0;

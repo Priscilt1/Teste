@@ -13,6 +13,8 @@ export const GlobalStyled = createGlobalStyle`
     --color-light-sky-blue: #DDE3E9;
     --color-light-grey: #C5CFD6;
     --color-greyish-brown: #555555;
+    --color-background-error: #F59393;
+    --color-red-error: #F33232;
   }
 
   * {
