@@ -7,6 +7,7 @@ const initialValues = {
   angular: false,
   sticker: 0,
   text: '',
+  success: false,
 }
 
 export const FormContext = createContext<IForm>(initialValues)

@@ -15,6 +15,7 @@ export const GlobalStyled = createGlobalStyle`
     --color-greyish-brown: #555555;
     --color-background-error: #F59393;
     --color-red-error: #F33232;
+    --color-green-success: #00C57C;
   }
 
   * {

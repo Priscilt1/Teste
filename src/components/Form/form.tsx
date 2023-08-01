@@ -3,7 +3,7 @@ import Button from '../Button'
 import Checkbox from '../Checkbox'
 import Counter from '../Counter'
 import InputTextArea from '../InputTextArea'
-import { Content } from './form.styled'
+import { Content, Footer } from './form.styled'
 import { useForm } from '../../context/useForm'
 
 export const Form = () => {
@@ -13,7 +13,11 @@ export const Form = () => {
   const handleSubmit = () => {
     if (event.sticker === 0) {
       setCounterInvalid(true)
-    }   
+    } else {
+      updateEvent({
+        success: true
+      })
+    }
   }
 
   useEffect(()=>{
@@ -31,7 +35,12 @@ export const Form = () => {
         <Counter isInvalid={counterInvalid} />
         <InputTextArea />
       </Content>
-      <Button text='ENVIAR' onClick={handleSubmit} />
+      <Footer>
+        <Button text='ENVIAR' onClick={handleSubmit} />
+        {event.success && (
+          <span>Formulário enviado com sucesso!</span>
+        )}
+      </Footer>
     </>
   )
 }

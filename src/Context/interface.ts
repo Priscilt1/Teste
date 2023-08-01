@@ -4,4 +4,5 @@ export interface IForm {
   readonly angular: boolean
   readonly sticker: number
   readonly text: string
+  readonly success: boolean
 }

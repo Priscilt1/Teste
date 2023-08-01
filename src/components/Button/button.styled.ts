@@ -7,7 +7,7 @@ export const ButtonStyled = styled.button`
   font-size: 1.125rem;
   color: ${props => (props.colorText ? props.colorText : 'var(--color-white)')};
   font-weight: 700;
-  border-radius: 8px;
+  border-radius: 0.4375rem;
   cursor: pointer;
   display: flex;
   justify-content: center;
