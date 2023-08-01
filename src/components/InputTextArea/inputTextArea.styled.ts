@@ -5,7 +5,7 @@ export const TextAreaStyled = styled.textarea`
   background: var(--color-light-sky-blue);
   font-size: 0.875rem;
   line-height: 1.5rem;
-  height: 100%;
+  height: 8.8125rem;
   width: 496px;
   resize: none;
   color: var(--color-pine-green);

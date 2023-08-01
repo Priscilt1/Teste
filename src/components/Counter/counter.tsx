@@ -10,23 +10,26 @@ interface ICounter {
 
 export const Counter = ({ isInvalid }: ICounter) => {
   const { updateEvent, event } = useForm()
-  const [counter, updateCounter] = useReducer((prev, next) => {
-    updateEvent({sticker: next.value})
-    return { ...prev, ...next }
-  }, { value: 0 })
 
-  console.log(isInvalid)
-  const isDisabled = counter.value === 0
+  const re = /^[0-9\b]+$/
+  
+  const maskNumber = (e) => {
+    if (e.target.value === '' || re.test(e.target.value)) {
+      updateEvent({sticker: e.target.value})
+   }
+  }
+
+  const isDisabled = event.sticker === 0
 
   return (
     <ContainerCounter>
-      <ButtonStyled disabled={isDisabled} onClick={() => updateCounter({ value: counter.value - 1})}>
+      <ButtonStyled disabled={isDisabled} onClick={() => updateEvent({ sticker: Number(event.sticker) - 1})}>
         <IconMinus />
       </ButtonStyled>
       <CounterContainer isInvalid={isInvalid}>
-        {counter.value}
+        <input type='text' value={event.sticker} onChange={(e)=> {maskNumber(e)}} />
       </CounterContainer>
-      <ButtonStyled onClick={() => updateCounter({ value: counter.value + 1})}>
+      <ButtonStyled onClick={() => updateEvent({ sticker: Number(event.sticker) + 1})}>
         <IconPlus />
       </ButtonStyled>
     </ContainerCounter>

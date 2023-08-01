@@ -1,4 +1,4 @@
-import React, { createContext, useReducer, useContext } from 'react'
+import React, { createContext, useReducer, useContext, useEffect } from 'react'
 import { IForm } from './interface'
 
 const initialValues = {
@@ -17,9 +17,26 @@ export const FormContextProvider = ({ children }: { children: React.ReactNode })
     return { ...prev, ...next }
   }, { ...initialValues})
 
+  useEffect(() => {
+    const valuesInitialReset = event.angular || event.react || event.vue || event.sticker > 0 || event.text.length > 0
+    if (valuesInitialReset && event.success) {
+      updateEvent({
+        success: false
+      })
+    }
+  }, [event])
+
+  const cleanForm = () => {
+    updateEvent({
+      ...initialValues,
+      success: true,
+    })
+  }
+
   const value = {
     event,
-    updateEvent
+    updateEvent,
+    cleanForm
   }
 
   return (

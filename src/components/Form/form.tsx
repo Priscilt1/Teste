@@ -5,9 +5,10 @@ import Counter from '../Counter'
 import InputTextArea from '../InputTextArea'
 import { Content, Footer } from './form.styled'
 import { useForm } from '../../context/useForm'
+import Title from '../Title'
 
 export const Form = () => {
-  const { updateEvent, event } = useForm()
+  const { updateEvent, event, cleanForm } = useForm()
   const [counterInvalid, setCounterInvalid] = useState(false) 
 
   const handleSubmit = () => {
@@ -17,6 +18,7 @@ export const Form = () => {
       updateEvent({
         success: true
       })
+      cleanForm()
     }
   }
 
@@ -26,13 +28,17 @@ export const Form = () => {
     }
   },[event.sticker])
 
+
   return (
     <>
       <Content>
+        <Title text='Quais stickers?'/>
         <Checkbox label='React' onChange={(e: boolean)  => updateEvent({ react: !event.react })} checked={event.react} />        
         <Checkbox label='Vue' onChange={(e: boolean)  => updateEvent({ vue: !event.vue })} checked={event.vue} />
         <Checkbox label='Angular' onChange={(e: boolean)  => updateEvent({ angular: !event.angular })} checked={event.angular} />
+        <Title text='Quantos stickers de cada?' />
         <Counter isInvalid={counterInvalid} />
+        <Title text='Observações:' />
         <InputTextArea />
       </Content>
       <Footer>
