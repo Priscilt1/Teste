@@ -13,7 +13,7 @@ export const Button = ({ text, backgroundColor, colorText, disabled, border, hov
       hoverBorder={hoverBorder}
       hoverTextColor={hoverTextColor}
       onClick={onClick}
-      uppercase={uppercase}
+      $uppercase={uppercase}
       {...props}
     >
       {text}

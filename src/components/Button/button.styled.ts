@@ -14,7 +14,7 @@ export const ButtonStyled = styled.button`
   transition: all 0.3s ease-in-out;
   padding: 8px 32px;
   border: ${props => (props.border ? props.border : '2px solid var(--color-dark-grey-blue)')};
-  text-transform: ${props => (props.uppercase ? 'uppercase' : 'capitalize')};
+  text-transform: ${props => (props.$uppercase ? 'uppercase' : 'capitalize')};
 
   &:disabled {
     border: 2px solid var(--color-greyish-brown);

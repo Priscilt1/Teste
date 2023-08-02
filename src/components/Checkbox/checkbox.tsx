@@ -15,7 +15,7 @@ const IconCheck = () => (
 
 export const Checkbox = ({ label, checked, disabled, ...props }: ICheckbox) => {
   return (
-    <CheckboxRootContainer tabindex="0" >
+    <CheckboxRootContainer >
       <HiddenCheckbox id={label} checked={checked} aria-labelledby={label} {...props} />
       <CheckboxStyled disabled={disabled} checked={checked}>
         {checked && <IconCheck />}
