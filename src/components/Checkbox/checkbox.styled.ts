@@ -40,9 +40,8 @@ export const CheckboxRootContainer = styled.label`
   grid-template-columns: 25px 1fr;
   margin-bottom: 12px;
 
-  span {
+  label {
     margin-left: 8px;
-    font-family: 'Inter';
     font-weight: 400;
     font-size: 14px;
     line-height: 24px;

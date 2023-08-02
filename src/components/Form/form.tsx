@@ -5,14 +5,19 @@ import Counter from '../Counter'
 import InputTextArea from '../InputTextArea'
 import { Content, Footer } from './form.styled'
 import { useForm } from '../../context/useForm'
-import Title from '../Title'
+import Label from '../Label'
 
 export const Form = () => {
   const { updateEvent, event, cleanForm } = useForm()
   const [counterInvalid, setCounterInvalid] = useState(false) 
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    // Here I would place the call to the endpoint
+    e.preventDefault()
     if (event.sticker === 0) {
+      updateEvent({
+        success: false
+      })
       setCounterInvalid(true)
     } else {
       updateEvent({
@@ -30,23 +35,23 @@ export const Form = () => {
 
 
   return (
-    <>
+    <form>
       <Content>
-        <Title text='Quais stickers?'/>
-        <Checkbox label='React' onChange={(e: boolean)  => updateEvent({ react: !event.react })} checked={event.react} />        
-        <Checkbox label='Vue' onChange={(e: boolean)  => updateEvent({ vue: !event.vue })} checked={event.vue} />
-        <Checkbox label='Angular' onChange={(e: boolean)  => updateEvent({ angular: !event.angular })} checked={event.angular} />
-        <Title text='Quantos stickers de cada?' />
-        <Counter isInvalid={counterInvalid} />
-        <Title text='Observações:' />
-        <InputTextArea />
+        <Label text='Quais stickers?'/>
+        <Checkbox label='React' lang='en-us' onChange={(e: boolean)  => updateEvent({ react: !event.react })} checked={event.react} />        
+        <Checkbox label='Vue' lang='en-us' onChange={(e: boolean)  => updateEvent({ vue: !event.vue })} checked={event.vue} />
+        <Checkbox label='Angular' lang='en-us' onChange={(e: boolean)  => updateEvent({ angular: !event.angular })} checked={event.angular} />
+        <Label id='sticker' text='Quantos stickers de cada?' />
+        <Counter id='sticker' isInvalid={counterInvalid} />
+        <Label id='observation' text='Observações:' />
+        <InputTextArea id='observation' />
       </Content>
       <Footer>
-        <Button text='ENVIAR' onClick={handleSubmit} />
+        <Button type='submit' uppercase text='enviar' onClick={handleSubmit} />
         {event.success && (
-          <span>Formulário enviado com sucesso!</span>
+          <h3>Formulário enviado com sucesso!</h3>
         )}
       </Footer>
-    </>
+    </form>
   )
 }

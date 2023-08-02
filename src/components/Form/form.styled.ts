@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Content = styled.div`
+export const Content = styled.section`
   display: flex;
   flex-direction: column;
   padding: 2rem;
@@ -15,7 +15,7 @@ export const Footer = styled.footer`
   flex-direction: row-reverse;
   padding: 2rem;
 
-  span {
+  h3 {
     color: var(--color-green-success);
     font-size: 1.125rem;
     font-weight: 600;

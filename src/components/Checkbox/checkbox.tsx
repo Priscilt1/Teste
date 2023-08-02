@@ -15,12 +15,12 @@ const IconCheck = () => (
 
 export const Checkbox = ({ label, checked, disabled, ...props }: ICheckbox) => {
   return (
-    <CheckboxRootContainer>
-      <HiddenCheckbox checked={checked} aria-labelledby={label} {...props} />
+    <CheckboxRootContainer tabindex="0" >
+      <HiddenCheckbox id={label} checked={checked} aria-labelledby={label} {...props} />
       <CheckboxStyled disabled={disabled} checked={checked}>
         {checked && <IconCheck />}
       </CheckboxStyled>
-      <span>{label}</span>
+      <label htmlFor={label} lang={props.lang || 'pr-BR'}>{label}</label>
     </CheckboxRootContainer>
   )
 }

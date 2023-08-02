@@ -3,6 +3,7 @@ import styled from "styled-components"
 
 export const ContainerCounter = styled.div`
   display: flex;
+  margin-bottom: 0.5rem;
 `
 
 export const ButtonStyled = styled.button`
@@ -17,11 +18,15 @@ export const ButtonStyled = styled.button`
   height: 2.625rem;
   width: 2.625rem;
   align-items: center;
+  
 
   svg {
     fill: ${props => (props.disabled ? 'var(--color-light-grey)': 'var(--color-dark-grey-blue)')};
 
-    &:hover {
+    /* Thinking about accessibility, talking about the possibility of placing a white border when the button was in focus, improving sharpness */
+    &:hover,
+    &:active,
+    &:focus {
       fill: ${props => (props.disabled ? 'var(--color-light-grey)': 'var(--color-dark-blue-grey)')};
     }
   }  
@@ -31,8 +36,8 @@ export const CounterContainer = styled.label`
   input {
     border-radius: 0.25rem;
     border: 1px solid var(--color-dark-grey-blue);
-    border: ${props => (props.isInvalid ? '1px solid var(--color-red-error)': '1px solid var(--color-dark-grey-blue)')};
-    background: ${props => (props.isInvalid ? 'var(--color-background-error)': 'var(--color-light-sky-blue)')};
+    border: ${props => (props.$isInvalid ? '1px solid var(--color-red-error)': '1px solid var(--color-dark-grey-blue)')};
+    background: ${props => (props.$isInvalid ? 'var(--color-background-error)': 'var(--color-light-sky-blue)')};
     width: 3.75rem;
     height: 2.625rem;
     flex-shrink: 0;

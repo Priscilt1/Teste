@@ -2,9 +2,9 @@ import React from 'react'
 import { ButtonStyled } from './button.styled'
 import { IButton } from './interface'
 
-export const Button = ({ text, backgroundColor, colorText, disabled, border, hoverBackgroundColor, hoverBorder, hoverTextColor, onClick }: IButton) => {
+export const Button = ({ text, backgroundColor, colorText, disabled, border, hoverBackgroundColor, hoverBorder, hoverTextColor, onClick, uppercase, ...props }: IButton) => {
   return (
-    <ButtonStyled 
+    <ButtonStyled
       backgroundColor={backgroundColor} 
       colorText={colorText}
       disabled={disabled}
@@ -13,6 +13,8 @@ export const Button = ({ text, backgroundColor, colorText, disabled, border, hov
       hoverBorder={hoverBorder}
       hoverTextColor={hoverTextColor}
       onClick={onClick}
+      uppercase={uppercase}
+      {...props}
     >
       {text}
     </ButtonStyled>
