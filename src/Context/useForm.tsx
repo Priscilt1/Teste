@@ -1,5 +1,5 @@
 import React, { createContext, useReducer, useContext, useEffect } from 'react'
-import { IForm } from './interface'
+import { IForm, IFormContext } from './interface'
 
 const initialValues = {
   react: false,
@@ -12,8 +12,8 @@ const initialValues = {
 
 export const FormContext = createContext<IForm>(initialValues)
 
-export const FormContextProvider = ({ children }: { children: React.ReactNode }) => {
-  const [event, updateEvent] = useReducer((prev, next) => {
+export const FormContextProvider = ({ children }: IFormContext) => {
+  const [event, updateEvent] = useReducer((prev: IForm, next: IForm) => {
     return { ...prev, ...next }
   }, { ...initialValues})
 
